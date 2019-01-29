@@ -1,0 +1,11 @@
+language: java
+jdk: oraclejdk8
+before_install:
+- chmod +x mvnw
+
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: "c13cc898-f787-4d6f-b6a0-d3a8a3eca691"
+  app: ikantpostgis
