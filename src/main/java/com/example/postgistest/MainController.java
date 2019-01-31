@@ -17,7 +17,7 @@ public class MainController {
 
     @GetMapping
     public String greet() {
-        return "Hello World!";
+        return "Hello World, its working!";
     }
 
 
