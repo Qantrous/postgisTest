@@ -23,3 +23,10 @@ before_script:
 
 install:
   - npm install
+
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: "e593bdec-c2ec-44cd-853f-6c6c17d24a02"
+  app: postgisTest
