@@ -1,4 +1,4 @@
-package com.example.postgistest.User;
+package com.example.postgistest.User.payload;
 
 public class UserCreationRequest {
 

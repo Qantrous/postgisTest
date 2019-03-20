@@ -1,4 +1,6 @@
-package com.example.postgistest.User;
+package com.example.postgistest.User.entities;
+
+import com.example.postgistest.User.payload.UserDetails;
 
 import javax.persistence.*;
 
@@ -9,6 +11,7 @@ public class MyUser {
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "object_id")
     @SequenceGenerator(sequenceName = "object_id_sequence", allocationSize = 1, name = "object_id")
     private Long id;
+
 
     private String name;
     private String username;
@@ -47,8 +50,9 @@ public class MyUser {
         this.age = age;
     }
 
-    @Override
-    public String toString() {
-        return "username:" + username + " , name: " + age + " name: " + name;
+
+    public UserDetails toUserDetails() {
+        return new UserDetails(this.name, this.age, this.username);
     }
+
 }

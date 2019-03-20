@@ -1,5 +1,8 @@
-package com.example.postgistest.User;
+package com.example.postgistest.User.services;
 
+import com.example.postgistest.User.entities.MyUser;
+import com.example.postgistest.User.payload.UserCreationRequest;
+import com.example.postgistest.User.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

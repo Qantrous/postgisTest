@@ -1,10 +1,12 @@
 package com.example.postgistest;
 
 
-import com.example.postgistest.User.MyUser;
-import com.example.postgistest.User.UserCreationRequest;
-import com.example.postgistest.User.UserService;
+import com.example.postgistest.User.entities.MyUser;
+import com.example.postgistest.User.payload.UserCreationRequest;
+import com.example.postgistest.User.payload.UserDetails;
+import com.example.postgistest.User.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -17,7 +19,7 @@ public class MainController {
 
     @GetMapping
     public String greet() {
-        return "Hello World, its working!";
+        return "Hello World, its working! aha yvero";
     }
 
 
@@ -30,7 +32,7 @@ public class MainController {
     }
 
     @GetMapping("/{userId}")
-    public String getUser(@PathVariable("userId") Long userId) {
-        return userService.getUser(userId).toString();
+    public ResponseEntity<UserDetails> getUser(@PathVariable("userId") Long userId) {
+        return ResponseEntity.ok().body(userService.getUser(userId).toUserDetails());
     }
 }
