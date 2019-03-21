@@ -40,6 +40,8 @@ public class UserServiceImpl implements UserService {
     @Override
     public MyUser getUser(Long id) {
         MyUser user = userRepo.getOne(id);
+        System.out.println(user.getName().length());
+        System.out.println(user.getUsername().length());
         return user;
     }
 }

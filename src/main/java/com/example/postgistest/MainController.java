@@ -24,7 +24,7 @@ public class MainController {
 
 
 
-    @PostMapping("/create/")
+    @PostMapping("/create")
     public String created(@Valid @RequestBody UserCreationRequest userCreationRequest) {
         MyUser created = userService.createUser(userCreationRequest);
 
