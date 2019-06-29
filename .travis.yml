@@ -17,9 +17,7 @@ env:
     - PGPORT=5433
     - DB_NAME=runon_test
     - DB_USER=runon
-before_script:
-  - psql --command="CREATE USER ${DB_USER};"
-  - psql --command="CREATE DATABASE ${DB_NAME} WITH OWNER = ${DB_USER};"
+
 
 install:
   - npm install
