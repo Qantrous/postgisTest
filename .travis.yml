@@ -4,19 +4,19 @@ before_install:
 - chmod +x mvnw
 - npm install -g standard
 
-services:
-  - postgresql
-addons:
-  postgresql: "10"
-  apt:
-    packages:
-      - postgresql-10
-      - postgresql-client-10
-env:
-  global:
-    - PGPORT=5433
-    - DB_NAME=runon_test
-    - DB_USER=runon
+#services:
+#  - postgresql
+#addons:
+#  postgresql: "10"
+#  apt:
+#    packages:
+#      - postgresql-10
+#      - postgresql-client-10
+#env:
+#  global:
+#    - PGPORT=5433
+#    - DB_NAME=runon_test
+#    - DB_USER=runon
 
 
 install:
