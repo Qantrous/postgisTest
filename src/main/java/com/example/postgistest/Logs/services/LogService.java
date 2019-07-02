@@ -29,6 +29,7 @@ public class LogService {
         BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
 
         String result = "";
+        String lastInput = "";
         String strLine;
 
         /* read log line by line */
@@ -36,13 +37,13 @@ public class LogService {
             /* parse strLine to obtain what you want */
             System.out.println (strLine);
             result += strLine + "\n";
-
+            lastInput = strLine;
         }
         fstream.close();
 
         Logs logs = new Logs();
         logs.setText(result);
-        logs.setJobId(Long.parseLong(strLine));
+        logs.setJobId(Long.parseLong(lastInput));
 
         logRepository.saveAndFlush(logs);
 
