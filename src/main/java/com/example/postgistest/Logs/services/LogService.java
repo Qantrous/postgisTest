@@ -22,14 +22,13 @@ public class LogService {
 
 
 
-    public String readLogs(MultipartFile multipartFile) throws IOException {
+    public String readLogs(MultipartFile multipartFile, Long jobId) throws IOException {
         File file = toFile(multipartFile);
 
         FileInputStream fstream = new FileInputStream(file);
         BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
 
         String result = "";
-        String lastInput = "";
         String strLine;
 
         /* read log line by line */
@@ -37,13 +36,12 @@ public class LogService {
             /* parse strLine to obtain what you want */
             System.out.println (strLine);
             result += strLine + "\n";
-            lastInput = strLine;
         }
         fstream.close();
 
         Logs logs = new Logs();
         logs.setText(result);
-        logs.setJobId(Long.parseLong(lastInput));
+        logs.setJobId(jobId);
 
         logRepository.saveAndFlush(logs);
 

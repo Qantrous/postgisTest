@@ -12,15 +12,15 @@ import java.io.IOException;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/log")
+@RequestMapping(path = "/log", produces = "application/json;charset=UTF-8")
 public class LogController {
 
     @Autowired
     private LogService logService;
 
     @PostMapping
-    public String consoleOutLog(@RequestParam MultipartFile file) throws IOException {
-        String result = logService.readLogs(file);
+    public String consoleOutLog(@RequestParam("file") MultipartFile file, @RequestParam("jobId") Long jobId) throws IOException {
+        String result = logService.readLogs(file, jobId);
         return  result;
     }
 
