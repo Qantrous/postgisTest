@@ -19,8 +19,8 @@ public class LogController {
     private LogService logService;
 
     @PostMapping
-    public String consoleOutLog(@RequestParam("file") MultipartFile file, @RequestParam("jobId") Long jobId) throws IOException {
-        String result = logService.readLogs(file, jobId);
+    public String consoleOutLog(@RequestParam MultipartFile file) throws IOException {
+        String result = logService.readLogs(file);
         return  result;
     }
 
