@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
 
 @RestController
 @RequestMapping(path = "/log")
@@ -28,5 +29,11 @@ public class LogController {
     public ResponseEntity<Logs> getLog(@PathVariable Long jobId) {
         return ResponseEntity.ok().body(logService.getLogByJobId(jobId));
 
+    }
+
+
+    @GetMapping("/ids")
+    public ResponseEntity<List<Long>> getIds() {
+        return ResponseEntity.ok().body(logService.getIds());
     }
 }

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
+import java.util.List;
 import java.util.Optional;
 
 import static com.example.postgistest.tools.MultipartFileConverter.toFile;
@@ -55,5 +56,9 @@ public class LogService {
         if (!logsOptional.isPresent())
             return null;
         return logsOptional.get();
+    }
+
+    public List<Long> getIds() {
+        return logRepository.getLogIds();
     }
 }
