@@ -36,4 +36,9 @@ public class LogController {
     public ResponseEntity<List<Long>> getIds() {
         return ResponseEntity.ok().body(logService.getIds());
     }
+
+    @GetMapping("/jobIds")
+    public ResponseEntity<List<Long>> getJobIds() {
+        return ResponseEntity.ok().body(logService.getJobIds());
+    }
 }

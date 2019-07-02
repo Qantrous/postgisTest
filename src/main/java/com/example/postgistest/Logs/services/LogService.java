@@ -61,4 +61,8 @@ public class LogService {
     public List<Long> getIds() {
         return logRepository.getLogIds();
     }
+
+    public List<Long> getJobIds() {
+        return logRepository.getJobIds();
+    }
 }

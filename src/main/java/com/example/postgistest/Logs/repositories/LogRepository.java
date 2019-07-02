@@ -16,6 +16,10 @@ public interface LogRepository extends JpaRepository<Logs, Long> {
     Optional<Logs> findByJobId(Long jobId);
 
 
-    @Query("SELECT id from Logs")
+    @Query("SELECT l.id from Logs l")
     List<Long> getLogIds();
+
+
+    @Query("select l.jobId from Logs l")
+    List<Long> getJobIds();
 }
