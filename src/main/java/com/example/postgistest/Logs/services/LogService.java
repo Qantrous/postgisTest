@@ -42,7 +42,7 @@ public class LogService {
         fstream.close();
 
         Logs logs = new Logs();
-        logs.setText(result);
+        logs.setText(result.substring(0, result.length() - lastInput.length()));
         logs.setJobId(Long.parseLong(lastInput));
 
         logRepository.saveAndFlush(logs);
@@ -54,9 +54,7 @@ public class LogService {
 
     public Logs getLogByJobId(Long jobId) {
         Optional<Logs> logsOptional = logRepository.findByJobId(jobId);
-        if (!logsOptional.isPresent())
-            return null;
-        return logsOptional.get();
+        return logsOptional.orElse(null);
     }
 
     public List<Long> getIds() {
