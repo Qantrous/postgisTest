@@ -13,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "/log", produces = "application/json;charset=UTF-8")
+@CrossOrigin("*")
 public class LogController {
 
     @Autowired
